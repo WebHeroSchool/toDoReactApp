@@ -33,7 +33,7 @@ const App = () => (
 			    	<Link to='/' className={styles.link}><MenuItem style={style}>Обо мне</MenuItem></Link>
 			        <Link to='/todo' className={styles.link}><MenuItem style={style}>Список дел</MenuItem></Link>
 			    	<div className={styles.menu__img}>		
-						<a href='https://webheroschool.ru'><img className={styles.img} alt='' src="https://sun9-55.userapi.com/c855036/v855036349/1c61bd/_CWqoHo5nH0.jpg" /></a>
+						<a href='https://webheroschool.ru'><div className={styles.img}></div></a>
 					</div>
 			    </MenuList>    
 			</div>
