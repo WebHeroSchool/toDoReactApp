@@ -1,0 +1,22 @@
+.wrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.case {
+	max-width: 350px;
+}
+.item {
+	color: #333;
+	width: 100%;
+}
+.done {
+	color: #808080;
+	text-decoration: line-through;
+}
+.input {
+	outline: none;
+	border: none;
+	background: #d4e6fa;
+}
+
