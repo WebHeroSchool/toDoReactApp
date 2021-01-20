@@ -8,7 +8,7 @@ import styles from './Todo.module.css';
 
 const Todo = () => {
 	const initialState = {
-		items: [
+		items: JSON.parse(localStorage.getItem('items')) || [
 				{
 					value: 'cоздать новое приложение',
 					isDone: false,
@@ -25,11 +25,11 @@ const Todo = () => {
 					id: 3
 				}
 		],
-		count: 3, //активные
-		countCompleted: 0, //выполненные
-		countAll: 3, //все
-		error: false,
-		filterItems: 'all'
+		count: JSON.parse(localStorage.getItem('count')) || 3, //активные
+		countCompleted: JSON.parse(localStorage.getItem('countCompleted')) || 0, //выполненные
+		countAll: JSON.parse(localStorage.getItem('countAll')) || 3, //все
+		error: JSON.parse(localStorage.getItem('error')) || false,
+		filterItems: JSON.parse(localStorage.getItem('filterItems')) || 'all'
 	};
 	
 	const [items, setItems] = useState (initialState.items);
@@ -54,7 +54,26 @@ const Todo = () => {
   	// 	console.log('mount');
   	// }, []);
 
-  	const onClickDone = id => {
+  	useEffect(() => {
+  		localStorage.setItem('items', JSON.stringify(items));
+  	});
+  	useEffect(() => {
+  		localStorage.setItem('count', JSON.stringify(count));
+  	});
+  	useEffect(() => {
+  		localStorage.setItem('countCompleted', JSON.stringify(countCompleted));
+  	});
+  	useEffect(() => {
+  		localStorage.setItem('countAll', JSON.stringify(countAll));
+  	});
+  	useEffect(() => {
+  		localStorage.setItem('error', JSON.stringify(error));
+  	});
+  	useEffect(() => {
+  		localStorage.setItem('filterItems', JSON.stringify(filterItems));
+  	});
+
+	const onClickDone = id => {
 		const newItemList = items.map(item => {
 			const newItem = { ...item };
 			if (item.id === id) {
