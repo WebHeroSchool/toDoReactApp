@@ -26,8 +26,6 @@ const Todo = () => {
 				}
 		],
 		count: 3, //активные
-		countCompleted: 0, //выполненные
-		countAll: 3, //все
 		error: false,
 		filterItems: 'all'
 	};
@@ -35,26 +33,9 @@ const Todo = () => {
 	const [items, setItems] = useState (initialState.items);
   	const [filterItems, setFilterItems] = useState (initialState.filterItems);
   	const [count, setCount] = useState (initialState.count);
-  	const [countAll, setCountAll] = useState (initialState.countAll);
-  	const [countCompleted, setCountCompleted] = useState (initialState.countCompleted);
   	const [error, setError] = useState (initialState.error);
   	
-  	// useEffect(() => {
-  	// 	console.log('error update');
-  	// 	return () => {
-  	// 		console.clear()
-  	// 	}
-  	// }, [error]);
-
-  	// useEffect(() => {
-  	// 	console.log('update');
-  	// });
-
-  	// useEffect(() => {
-  	// 	console.log('mount');
-  	// }, []);
-
-  	const onClickDone = id => {
+   	const onClickDone = id => {
 		const newItemList = items.map(item => {
 			const newItem = { ...item };
 			if (item.id === id) {
@@ -64,13 +45,9 @@ const Todo = () => {
 		});
 
 		const newCount = newItemList.filter(newItem => newItem.isDone === false).length;
-		const newCountCompleted = newItemList.filter(newItem => newItem.isDone !== false).length;
-		const newCountAll = newItemList.length;
 
 		setItems(newItemList);
 		setCount(newCount);
-		setCountCompleted(newCountCompleted);
-		setCountAll(newCountAll);
 	};
 
 	const filterItemList = () => {
@@ -90,43 +67,35 @@ const Todo = () => {
 	const onClickDeleteAll = id => {
 		const newDeleteAll = items.filter(item => item.isDone === false);
 		const newCount = newDeleteAll.length;
-		const newCountAll = newDeleteAll.length;
 
 		setItems(newDeleteAll);
  		setCount(newCount);
-		setCountCompleted(0);
-		setCountAll(newCountAll);
 	};
 
 	const onClickDelete = id => {
 		const newDeleteItem = items.filter(item => item.id !== id);
-
 		const newCount = newDeleteItem.filter(newItem => newItem.isDone === false).length;
-		const newCountCompleted = newDeleteItem.filter(newItem => newItem.isDone !== false).length;
-		const newCountAll = newDeleteItem.length;
 
 		setItems(newDeleteItem);
 		setCount(newCount);
-		setCountCompleted(newCountCompleted);
-		setCountAll(newCountAll);
 	};
 
 	const onClickAdd = value => {
 		if (value === '' || items.some((item) => value === item.value)) {
  			setError (true);
 		} else {
+			const random = Math.floor(Math.random() * 1000);
 			const newItemList = [
 					...items,
 					{
 						value,
 						isDone: false,
-						id: count + 1
+						id: random + 1
 					}
 			];
 			setError (false);
 			setItems (newItemList);
 			setCount((count) => count + 1);
-			setCountAll((countAll) => countAll + 1);
 		}
 	};
 
