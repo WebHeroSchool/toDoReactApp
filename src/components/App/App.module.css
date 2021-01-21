@@ -32,6 +32,6 @@ body {
 	height: 40px;
 	opacity: 80%;
 	border-radius: 5px;
-	background: url(WHS.PNG) 0 0 /cover no-repeat;
+	background: url('WHS.PNG') 0 0 /cover no-repeat;
 	margin: 0 0 5px 0;
 }
