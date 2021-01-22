@@ -10,22 +10,12 @@ const Todo = () => {
 	const initialState = {
 		items: JSON.parse(localStorage.getItem('items')) || [
 				{
-					value: 'cоздать новое приложение',
+					value: 'кликни, чтобы изменить или добавь новую задачу',
 					isDone: false,
 					id: 1
-				},
-				{
-					value: 'прописать props-ы',
-					isDone: false,
-					id: 2
-				},
-				{
-					value: 'помыть машину',
-					isDone: false,
-					id: 3
 				}
 		],
-		count: JSON.parse(localStorage.getItem('count')) || 3, //активные
+		count: JSON.parse(localStorage.getItem('count')) || 1, //активные
 		error: JSON.parse(localStorage.getItem('error')) || false,
 		filterItems: JSON.parse(localStorage.getItem('filterItems')) || 'all'
 	};
@@ -56,7 +46,6 @@ const Todo = () => {
 			}
 			return newItem;
 		});
-
 		const newCount = newItemList.filter(newItem => newItem.isDone === false).length;
 
 		setItems(newItemList);
@@ -77,7 +66,7 @@ const Todo = () => {
 		setFilterItems(element);
 	};
 
-	const onClickDeleteAll = id => {
+	const onClickDeleteAll = isDone => {
 		const newDeleteAll = items.filter(item => item.isDone === false);
 		const newCount = newDeleteAll.length;
 

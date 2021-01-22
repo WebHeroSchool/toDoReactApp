@@ -10,14 +10,14 @@ body {
 	margin: 0 auto;
 	width: 400px;
 }
-.menu {
+.menu__list {
 	display: flex;
 	align-items: center;
 }
 .link {
 	text-decoration: none;
 }
-.tab {
+.wrap__tab {
 	min-height: 500px;
 	max-width: 700px;
 	background-color: #B0C4DE;
@@ -32,6 +32,17 @@ body {
 	height: 40px;
 	opacity: 80%;
 	border-radius: 5px;
-	background: url('WHS.PNG') 0 0 /cover no-repeat;
+	background: url('./WHS.PNG') 0 0 /cover no-repeat;
 	margin: 0 0 5px 0;
+}
+@media (max-width: 460px) {
+	.wrap {
+		width: 400px;
+	}
+	.wrap__tab {
+		max-width: 400px;
+	}
+	.wrap__menu {
+		max-width: 400px;
+	}
 }

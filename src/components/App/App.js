@@ -27,8 +27,8 @@ const App = () => (
 	<Router>
 		<div className={styles.wrap}>
 
-			<div>
-				<MenuList className={styles.menu}>
+			<div className={styles.wrap__menu}>
+				<MenuList className={styles.menu__list}>
 			    	<Link to='/' className={styles.link}><MenuItem style={style}>Обо мне</MenuItem></Link>
 			        <Link to='/todo' className={styles.link}><MenuItem style={style}>Список дел</MenuItem></Link>
 			    	<div className={styles.menu__img}>		
@@ -37,7 +37,7 @@ const App = () => (
 			    </MenuList>    
 			</div>
 
-			<div className={styles.tab}>
+			<div className={styles.wrap__tab}>
 				<Route path='/' exact component={About} />
 				<Route path='/todo' component={Todo} />
 			</div>
