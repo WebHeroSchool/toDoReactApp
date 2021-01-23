@@ -8,14 +8,8 @@ import styles from './Todo.module.css';
 
 const Todo = () => {
 	const initialState = {
-		items: JSON.parse(localStorage.getItem('items')) || [
-				{
-					value: 'кликни, чтобы изменить или добавь новую задачу',
-					isDone: false,
-					id: 1
-				}
-		],
-		count: JSON.parse(localStorage.getItem('count')) || 1, //активные
+		items: JSON.parse(localStorage.getItem('items')) || [],
+		count: JSON.parse(localStorage.getItem('count')) || 0, //активные
 		error: JSON.parse(localStorage.getItem('error')) || false,
 		filterItems: JSON.parse(localStorage.getItem('filterItems')) || 'all'
 	};

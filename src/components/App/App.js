@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 import Todo from '../Todo/Todo';
 import About from '../About/About';
+import WebIcon from './img/WHS.PNG';
 
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
@@ -32,7 +33,7 @@ const App = () => (
 			    	<Link to='/' className={styles.link}><MenuItem style={style}>Обо мне</MenuItem></Link>
 			        <Link to='/todo' className={styles.link}><MenuItem style={style}>Список дел</MenuItem></Link>
 			    	<div className={styles.menu__img}>		
-						<a href='https://webheroschool.ru'><div className={styles.img}></div></a>
+						<a href='https://webheroschool.ru'><div><img className={styles.img} src={ WebIcon } alt=''></img></div></a>
 					</div>
 			    </MenuList>    
 			</div>
