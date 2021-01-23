@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 import Todo from '../Todo/Todo';
 import About from '../About/About';
-import WebIcon from './img/WHS.PNG';
+import WebIcon from './img/whss.png';
 
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
