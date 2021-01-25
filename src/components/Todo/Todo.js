@@ -16,7 +16,7 @@ const Todo = () => {
 	
 	const [items, setItems] = useState (initialState.items);
   	const [filterItems, setFilterItems] = useState (initialState.filterItems);
-  	const [count, setCount] = useState (initialState.count);
+  	const [count, setCount] = useState (items.length);
   	const [error, setError] = useState (initialState.error);
   	
   	useEffect(() => {
@@ -80,13 +80,13 @@ const Todo = () => {
 		if (value === '' || items.some((item) => value === item.value)) {
  			setError (true);
 		} else {
-			const random = items.length;
+			// const random = items.length;
 			const newItemList = [
 					...items,
 					{
 						value,
 						isDone: false,
-						id: random + 1
+						id: setCount
 					}
 			];
 			setError (false);
