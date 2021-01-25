@@ -9,7 +9,6 @@ import styles from './Todo.module.css';
 const Todo = () => {
 	const initialState = {
 		items: JSON.parse(localStorage.getItem('items')) || [],
-		count: JSON.parse(localStorage.getItem('count')) || 0, //активные
 		error: JSON.parse(localStorage.getItem('error')) || false,
 		filterItems: JSON.parse(localStorage.getItem('filterItems')) || 'all'
 	};
@@ -70,23 +69,19 @@ const Todo = () => {
 
 	const onClickDelete = id => {
 		const newDeleteItem = items.filter(item => item.id !== id);
-		const newCount = newDeleteItem.filter(newItem => newItem.isDone === false).length;
-
 		setItems(newDeleteItem);
-		setCount(newCount);
 	};
 
 	const onClickAdd = value => {
 		if (value === '' || items.some((item) => value === item.value)) {
  			setError (true);
 		} else {
-			// const random = items.length;
 			const newItemList = [
 					...items,
 					{
 						value,
 						isDone: false,
-						id: setCount
+						id: count
 					}
 			];
 			setError (false);
@@ -117,7 +112,7 @@ const Todo = () => {
 					onUpdateItem={onUpdateItem} 
 				/>
 				<Footer 
-					count={count}
+					count={(items.filter(item => item.isDone === false)).length}
 					onClickDeleteAll={onClickDeleteAll}
 					onClickFilter={onClickFilter}
 				/>
