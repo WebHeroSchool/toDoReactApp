@@ -80,7 +80,7 @@ const Todo = () => {
 		if (value === '' || items.some((item) => value === item.value)) {
  			setError (true);
 		} else {
-			const random = Math.floor(Math.random() * 1000);
+			const random = items.length;
 			const newItemList = [
 					...items,
 					{
